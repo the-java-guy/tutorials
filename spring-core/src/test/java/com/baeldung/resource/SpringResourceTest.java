@@ -54,4 +54,11 @@ public class SpringResourceTest {
         String fileData = classPathResourceReader.listResourceContentsUsingFile(classPathResourceReader.retrieveFileUsingResourceUtils());
         assertEquals(testData, fileData);
     }
+    
+    @Test
+    public void whenResourceAsStream_thenReadSuccessful() throws IOException {
+        Resource resource = classPathResourceReader.retrieveResourceUsingResourceLoader();
+        String fileData = classPathResourceReader.listResourceContentsUsingInputStream(resource.getInputStream());
+        assertEquals(testData, fileData);
+    }
 }
